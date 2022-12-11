@@ -1,8 +1,14 @@
 import "./AddNewTask.css";
 import { useState } from "react";
 
-export default function NewTask(props) {
+export default function AddNewTask(props) {
+  const addNewTask = (description) => {
+    setTasks([...tasks, description]);
+    props.tasks = tasks
+  };
+
   const [input, setInput] = useState("");
+  const [tasks, setTasks] = useState([]);
 
   return (
     <div className="add-task-container">
@@ -13,7 +19,9 @@ export default function NewTask(props) {
         onChange={(e) => setInput(e.target.value)}
       />
       <div className="btn-container">
-        <button className="btn btn-add">+</button>
+        <button className="btn btn-add" onClick={() => addNewTask(input)}>
+          +
+        </button>
         <button className="btn btn-search">
           <img src="./search-icon.png" alt="search icon" />
         </button>
