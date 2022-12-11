@@ -1,0 +1,43 @@
+.new-task {
+  display: flex;
+  width: 89%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid rgba(201, 201, 201, 0.445);
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.new-task:hover {
+  background-color: rgba(235, 235, 235, 0.5);
+}
+
+.new-task h3 {
+  margin-left: 24px;
+}
+
+.new-task button {
+  margin-right: 24px;
+}
+
+.btn-check {
+  background-color: rgb(108, 177, 108);
+}
+
+.btn-check, .btn-delete, .btn-reload {
+  filter: invert(100%) sepia(0%) saturate(445%) hue-rotate(196deg)
+    brightness(108%) contrast(100%);
+}
+
+.btn-delete {
+  background-color: rgb(212, 1, 1);
+}
+
+.btn-reload {
+  background-color: blanchedalmond;
+}
+
+.no-display {
+  display: none;
+}
