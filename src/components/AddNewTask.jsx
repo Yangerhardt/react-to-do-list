@@ -2,13 +2,15 @@ import "./AddNewTask.css";
 import { useState } from "react";
 
 export default function AddNewTask(props) {
-  const addNewTask = (description) => {
-    setTasks([...tasks, description]);
-    props.tasks = tasks
-  };
-
   const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+
+  const addNewTask = (description) => {
+    if (props.tarefas.tasks.includes(description)) {
+      alert("Tarefa já cadastrada")
+    } else {
+      props.tarefas.setTasks([...props.tarefas.tasks, description]);
+    }
+  };
 
   return (
     <div className="add-task-container">
