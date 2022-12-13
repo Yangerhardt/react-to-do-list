@@ -1,15 +1,18 @@
 import "./AddNewTask.css";
 import { useState } from "react";
 
-export default function AddNewTask(props) {
+export default function AddNewTask({ taskHandler }) {
   const [input, setInput] = useState("");
+  const [id, setId] = useState(0);
 
-  const addNewTask = (description) => {
-    if (props.tarefas.tasks.includes(description)) {
-      alert("Tarefa já cadastrada")
-    } else {
-      props.tarefas.setTasks([...props.tarefas.tasks, description]);
-    }
+  const createTaskObj = (task) => {
+    const taskObj = {
+      task,
+      id,
+    };
+    setId(id + 1);
+    taskHandler(taskObj);
+    setInput("")
   };
 
   return (
@@ -21,7 +24,7 @@ export default function AddNewTask(props) {
         onChange={(e) => setInput(e.target.value)}
       />
       <div className="btn-container">
-        <button className="btn btn-add" onClick={() => addNewTask(input)}>
+        <button className="btn btn-add" onClick={() => createTaskObj(input)}>
           +
         </button>
         <button className="btn btn-search">

@@ -2,14 +2,12 @@ import "./Task.css";
 import "./AddNewTask.css";
 import TaskButtons from "./TaskButtons";
 
-export default function Task(props) {
-
-
+export default function Task({description, id, deleteTask}) {
   return (
     <div className="new-task">
-      <h3>{props.description}</h3>
+      <h3>{description}</h3>
       <div className="task-buttons">
-        <TaskButtons />
+        <TaskButtons  id={id} deleteTask={deleteTask}/>
       </div>
     </div>
   );
